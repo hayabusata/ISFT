@@ -1,21 +1,17 @@
 package falleight.isft;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+import android.support.v4.app.FragmentTabHost;
+import android.support.v7.app.AppCompatActivity;
+import android.widget.TabHost;
 
-import java.sql.SQLException;
-
-public class TeacherMenuActivity extends AppCompatActivity implements View.OnClickListener {
+public class TeacherMenuActivity extends AppCompatActivity {
     String email;
     String password;
     String type;
     String newStatus;
     ConnectionISFT test;
-    Button occupancyButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,45 +25,32 @@ public class TeacherMenuActivity extends AppCompatActivity implements View.OnCli
             type = intent.getStringExtra("type");
         }
 
-        /*test = new ConnectionISFT();
-        test.connectDatabase();
-        System.out.println("process");*/
-        occupancyButton = (Button)findViewById(R.id.OccupancyInformationButton);
-        occupancyButton.setOnClickListener(this);
+        initTabs();
     }
 
-    @Override
-    public void onClick(View v) {
-        newStatus = occupancyButton.getText().toString();
-        new AsyncAppTask().execute();
-    }
+    protected void initTabs() {
+        try {
+            TabHost tabHost = (TabHost)findViewById(R.id.tabHost);
+            tabHost.setup();
+            TabHost.TabSpec spec;
 
-    class AsyncAppTask extends AsyncTask<Void, Void, Boolean> {
-        @Override
-        protected void onPreExecute() {
+            //Tab1
+            spec = tabHost.newTabSpec("Tab1")
+                    .setIndicator("Home")
+                    .setContent(R.id.tab1);
+            tabHost.addTab(spec);
 
-        }
+            //Tab2
+            spec = tabHost.newTabSpec("Tab2")
+                    .setIndicator("Event")
+                    .setContent(R.id.tab2);
+            tabHost.addTab(spec);
 
-        @Override
-        protected Boolean doInBackground(Void... params) {
-            test = new ConnectionISFT();
-            test.connectDatabase();
-            try {
-                if (test.loginISFT(email, password, type)) {
-                    System.out.println(newStatus);
-                    test.updateStatus(newStatus);
-                    return true;
-                }
-            } catch (SQLException e) {
-                System.out.println("error");
-            }
-
-            return false;
-        }
-
-        @Override
-        protected void onPostExecute(final Boolean success) {
-
+            tabHost.setCurrentTab(0);
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        } catch (RuntimeException e) {
+            e.printStackTrace();
         }
     }
 }
