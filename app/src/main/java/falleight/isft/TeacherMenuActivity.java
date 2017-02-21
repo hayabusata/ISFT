@@ -7,10 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.TabHost;
 
 public class TeacherMenuActivity extends AppCompatActivity {
-    String email;
-    String password;
-    String type;
-    String newStatus;
+    protected String email;
+    protected String password;
+    protected String type;
+    protected String newStatus;
     ConnectionISFT test;
 
     @Override
@@ -53,4 +53,22 @@ public class TeacherMenuActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
+    public String getEmail() {
+        return this.email;
+    }
+
+    public String getPassword() {
+        return this.password;
+    }
+
+    public String getType() {
+        return this.type;
+    }
+
+    public String getNewStatus() {
+        return this.newStatus;
+    }
+
+
 }
