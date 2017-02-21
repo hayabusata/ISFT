@@ -8,12 +8,17 @@ import android.view.View;
 import android.widget.Button;
 import com.beardedhen.androidbootstrap.BootstrapButton;
 
+import static falleight.isft.R.string.title_activity_login;
+import static falleight.isft.R.string.title_activity_studentmenu;
+
 public class StartMenuActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_menu);
+        setTitle(title_activity_studentmenu);
+
         BootstrapButton teachersbutton = (BootstrapButton)findViewById(R.id.TeachersButton);
         teachersbutton.setOnClickListener(new View.OnClickListener() {
             @Override

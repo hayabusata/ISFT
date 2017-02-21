@@ -73,14 +73,14 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         setContentView(R.layout.activity_login);
 
         //ログインしなくても教員用画面に行けるやつ
-        Button button = (Button)findViewById(R.id.button);
+        /*Button button = (Button)findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this, TeacherMenuActivity.class);
                 startActivity(intent);
             }
-        });
+        });*/
 
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);

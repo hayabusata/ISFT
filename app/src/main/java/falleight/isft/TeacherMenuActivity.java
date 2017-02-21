@@ -36,13 +36,13 @@ public class TeacherMenuActivity extends AppCompatActivity {
 
             //Tab1
             spec = tabHost.newTabSpec("Tab1")
-                    .setIndicator("Home")
+                    .setIndicator("在室状況")
                     .setContent(R.id.tab1);
             tabHost.addTab(spec);
 
             //Tab2
             spec = tabHost.newTabSpec("Tab2")
-                    .setIndicator("Event")
+                    .setIndicator("プロフィール")
                     .setContent(R.id.tab2);
             tabHost.addTab(spec);
 

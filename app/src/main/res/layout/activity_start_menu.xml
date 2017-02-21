@@ -12,45 +12,65 @@
     tools:context="falleight.isft.StartMenuActivity">
 
     <LinearLayout
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:weightSum="1">
+        android:layout_height="match_parent">
 
-        <com.beardedhen.androidbootstrap.BootstrapButton
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="生徒"
-            app:bootstrapBrand="success"
-            app:bootstrapSize="lg"
-            app:buttonMode="regular"
-            app:showOutline="false"
-            app:roundedCorners="true"
-            android:id="@+id/StudentsButton"
-            android:layout_weight="0.09" />
+            android:layout_weight="1">
 
-        <com.beardedhen.androidbootstrap.BootstrapButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="教員"
-            app:bootstrapBrand="success"
-            app:bootstrapSize="lg"
-            app:buttonMode="regular"
-            app:showOutline="false"
-            app:roundedCorners="true"
-            android:id="@+id/TeachersButton"
-            android:layout_marginTop="70dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_weight="0.11" />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                app:srcCompat="@drawable/student_icon"
+                android:id="@+id/imageView"
+                android:layout_weight="0.09" />
 
-        <TextView
-            android:text="※教員用画面にはログインが必要です。"
-            android:layout_width="match_parent"
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:layout_weight="0.09"
+                android:text="生徒"
+                app:bootstrapBrand="info"
+                app:bootstrapSize="lg"
+                app:buttonMode="regular"
+                app:showOutline="false"
+                app:roundedCorners="true"
+                android:id="@+id/StudentsButton" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/CautionText"
-            android:layout_marginTop="70dp"
-            android:layout_weight="0.01" />
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                app:srcCompat="@drawable/teacher_icon"
+                android:id="@+id/imageView2"
+                android:layout_weight="0.09" />
+
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:layout_weight="0.09"
+                android:text="教員"
+                app:bootstrapBrand="success"
+                app:bootstrapSize="lg"
+                app:buttonMode="regular"
+                app:showOutline="false"
+                app:roundedCorners="true"
+                android:id="@+id/TeachersButton" />
+
+        </LinearLayout>
     </LinearLayout>
 
 </RelativeLayout>
