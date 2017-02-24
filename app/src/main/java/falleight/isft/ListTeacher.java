@@ -12,6 +12,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static falleight.isft.R.string.title_activity_studentmenu;
+
 public class ListTeacher extends AppCompatActivity {
     ConnectionISFT test;
     List stockList;
@@ -23,6 +25,7 @@ public class ListTeacher extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_teacher);
+        setTitle(title_activity_studentmenu);
 
         listView = (ListView)findViewById(R.id.teacherList);
 

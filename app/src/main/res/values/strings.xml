@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">ISFT</string>
-    <string name="title_activity_studentmenu">ホーム</string>
+    <string name="title_activity_startmenu">ホーム</string>
     <string name="title_activity_login">ログイン</string>
+    <string name="title_activity_studentmenu">在室状況</string>
+    <string name="title_activity_teachermenu">管理画面</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">メールアドレス</string>

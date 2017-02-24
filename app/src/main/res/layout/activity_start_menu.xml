@@ -63,7 +63,7 @@
                 android:layout_margin="10dp"
                 android:layout_weight="0.09"
                 android:text="教員"
-                app:bootstrapBrand="success"
+                app:bootstrapBrand="warning"
                 app:bootstrapSize="lg"
                 app:buttonMode="regular"
                 app:showOutline="false"

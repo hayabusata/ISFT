@@ -6,6 +6,9 @@ import android.support.v4.app.FragmentTabHost;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TabHost;
 
+import static falleight.isft.R.string.title_activity_startmenu;
+import static falleight.isft.R.string.title_activity_teachermenu;
+
 public class TeacherMenuActivity extends AppCompatActivity {
     String email;
     String password;
@@ -17,6 +20,7 @@ public class TeacherMenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_menu);
+        setTitle(title_activity_teachermenu);
 
         Intent intent = getIntent();
         if (intent != null) {
