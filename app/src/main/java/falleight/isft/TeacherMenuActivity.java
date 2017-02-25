@@ -39,7 +39,7 @@ public class TeacherMenuActivity extends FragmentActivity {
         tabHost.setup(this, getSupportFragmentManager(), R.id.content);
 
         TabHost.TabSpec tabSpec1 = tabHost.newTabSpec("Tab1").setIndicator("在室状況");
-        tabHost.addTab(tabSpec1, OccupancyStatusActivity2.class, null);
+        tabHost.addTab(tabSpec1, OccupancyStatusActivity2.newInstance(email, password, type).getClass(), null);
 
         TabHost.TabSpec tabSpec2 = tabHost.newTabSpec("Tab2").setIndicator("プロフィール");
         tabHost.addTab(tabSpec2, EditProfileActivity2.class, null);
