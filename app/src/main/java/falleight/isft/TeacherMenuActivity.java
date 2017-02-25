@@ -38,9 +38,8 @@ public class TeacherMenuActivity extends AppCompatActivity {
             TabHost tabHost = (TabHost)findViewById(R.id.tabHost);
             tabHost.setup();
             TabHost.TabSpec spec;
-            Intent intent;
 
-            intent = new Intent(this, OccupancyStatusActivity.class);
+            Intent intent = new Intent(this, OccupancyStatusActivity.class);
             spec = tabHost.newTabSpec("Tab1")
                     .setIndicator("在室状況")
                     .setContent(new Intent(this, OccupancyStatusActivity.class));
