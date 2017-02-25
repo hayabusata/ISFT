@@ -10,7 +10,7 @@ import android.widget.TabHost;
 import static falleight.isft.R.string.title_activity_startmenu;
 import static falleight.isft.R.string.title_activity_teachermenu;
 
-public class TeacherMenuActivity extends AppCompatActivity {
+public class TeacherMenuActivity extends FragmentActivity {
     protected String email;
     protected String password;
     protected String type;
@@ -31,44 +31,18 @@ public class TeacherMenuActivity extends AppCompatActivity {
         }
 
         initTabs();
+
     }
 
-    protected void initTabs() {
-        try {
-            TabHost tabHost = (TabHost)findViewById(R.id.tabHost);
-            tabHost.setup();
-            TabHost.TabSpec spec;
+    private void initTabs() {
+        FragmentTabHost tabHost = (FragmentTabHost)findViewById(R.id.tabHost);
+        tabHost.setup(this, getSupportFragmentManager(), R.id.content);
 
-            Intent intent = new Intent(this, OccupancyStatusActivity.class);
-            spec = tabHost.newTabSpec("Tab1")
-                    .setIndicator("在室状況")
-                    .setContent(new Intent(this, OccupancyStatusActivity.class));
-            tabHost.addTab(spec);
+        TabHost.TabSpec tabSpec1 = tabHost.newTabSpec("Tab1").setIndicator("在室状況");
+        tabHost.addTab(tabSpec1, OccupancyStatusActivity2.newInstance(email, password, type).getClass(), null);
 
-            intent = new Intent(this, EditProfileActivity.class);
-            spec = tabHost.newTabSpec("Tab2")
-                    .setIndicator("プロフィール")
-                    .setContent(new Intent(this, EditProfileActivity.class));
-            tabHost.addTab(spec);
-
-            tabHost.setCurrentTab(0);
-
-            /*FragmentTabHost tabHost = (FragmentTabHost)findViewById(android.R.id.tabhost);
-            tabHost.setup(this, getSupportFragmentManager(), R.id.content);
-
-            TabHost.TabSpec mTabSpec1 = tabHost.newTabSpec("tab1")
-                    .setIndicator("在室状況");
-            tabHost.addTab(mTabSpec1, OccupancyStatusActivity.class, null);
-
-            TabHost.TabSpec mTabSpec2 = tabHost.newTabSpec("tab2")
-                    .setIndicator("プロフィール");
-            tabHost.addTab(mTabSpec2, EditProfileActivity.class, null);*/
-
-        } catch (IllegalArgumentException e) {
-            e.printStackTrace();
-        } catch (RuntimeException e) {
-            e.printStackTrace();
-        }
+        TabHost.TabSpec tabSpec2 = tabHost.newTabSpec("Tab2").setIndicator("プロフィール");
+        tabHost.addTab(tabSpec2, EditProfileActivity2.class, null);
     }
 
     public String getEmail() {
