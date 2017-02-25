@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_teacher_menu"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="falleight.isft.TeacherMenuActivity">
+    android:layout_height="match_parent">
 
 
-    <TabHost
+    <android.support.v4.app.FragmentTabHost
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/tabHost"
-        android:layout_alignParentTop="true">
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -25,26 +25,15 @@
 
             <FrameLayout
                 android:id="@android:id/tabcontent"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_width="0dp"
+                android:layout_height="0dp"/>
 
-                <LinearLayout
-                    android:id="@+id/tab1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-                    <include layout="@layout/occupation_status"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/tab2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-                    <include layout="@layout/edit_profile"/>
-                </LinearLayout>
-
-            </FrameLayout>
+            <FrameLayout
+                android:id="@+id/content"
+                android:layout_alignParentTop="true"
+                android:layout_above="@android:id/tabs"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"/>
         </LinearLayout>
-    </TabHost>
+    </android.support.v4.app.FragmentTabHost>
 </RelativeLayout>
