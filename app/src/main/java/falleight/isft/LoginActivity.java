@@ -336,6 +336,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 if (test.loginISFT(mEmail, mPassword, mType)) {
                     if (mType.equals("teacher")) {
                         intent = new Intent(falleight.isft.LoginActivity.this, falleight.isft.TeacherMenuActivity.class);
+                        intent.putExtra("status", test.getStatusFromDatabase(mEmail, mPassword));
+                        System.out.println(mType);
                     }
 
                     intent.putExtra("email", mEmail);

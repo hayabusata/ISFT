@@ -33,6 +33,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
+                    <include layout="@layout/occupation_status"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -40,6 +41,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
+                    <include layout="@layout/edit_profile"/>
                 </LinearLayout>
 
             </FrameLayout>

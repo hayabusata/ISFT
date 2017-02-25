@@ -154,4 +154,11 @@ public class ConnectionISFT {
 			System.out.println(data2.getType());
 		}*/
 	}
+
+	public String getStatusFromDatabase(String email, String password) throws SQLException {
+		String str = String.format("SELECT * FROM isft WHERE email = '%s' and password = '%s' and type = 'teacher';", email, password);
+		ResultSet result = this.statement.executeQuery(str);
+		result.last();
+		return result.getString(4);
+	}
 }

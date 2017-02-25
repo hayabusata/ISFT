@@ -30,7 +30,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".StartMenuActivity" />
         <activity android:name=".TeacherMenuActivity" />
-        <activity android:name=".ListTeacher"></activity>
+        <activity android:name=".ListTeacher" />
+        <activity android:name=".OccupancyStatusActivity" />
     </application>
 
 </manifest>
