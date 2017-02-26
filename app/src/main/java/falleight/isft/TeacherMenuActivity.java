@@ -14,7 +14,8 @@ public class TeacherMenuActivity extends FragmentActivity {
     protected String email;
     protected String password;
     protected String type;
-    protected String newStatus;
+    protected String status;
+    protected String word;
     ConnectionISFT test;
 
     @Override
@@ -28,6 +29,9 @@ public class TeacherMenuActivity extends FragmentActivity {
             email = intent.getStringExtra("email");
             password = intent.getStringExtra("pass");
             type = intent.getStringExtra("type");
+            status = intent.getStringExtra("status");
+            word = intent.getStringExtra("word");
+            //System.out.println(status + "だよ");
         }
 
         initTabs();
@@ -39,10 +43,10 @@ public class TeacherMenuActivity extends FragmentActivity {
         tabHost.setup(this, getSupportFragmentManager(), R.id.content);
 
         TabHost.TabSpec tabSpec1 = tabHost.newTabSpec("Tab1").setIndicator("在室状況");
-        tabHost.addTab(tabSpec1, OccupancyStatusActivity2.newInstance(email, password, type).getClass(), null);
+        tabHost.addTab(tabSpec1, OccupancyStatusActivity.newInstance(email, password, type, status).getClass(), OccupancyStatusActivity.newInstance(email, password, type, status).getArguments());
 
         TabHost.TabSpec tabSpec2 = tabHost.newTabSpec("Tab2").setIndicator("プロフィール");
-        tabHost.addTab(tabSpec2, EditProfileActivity2.class, null);
+        tabHost.addTab(tabSpec2, EditProfileActivity.newInstance(email, password, type, word).getClass(), EditProfileActivity.newInstance(email, password, type, word).getArguments());
     }
 
     public String getEmail() {
@@ -57,8 +61,8 @@ public class TeacherMenuActivity extends FragmentActivity {
         return this.type;
     }
 
-    public String getNewStatus() {
-        return this.newStatus;
+    public String getStatus() {
+        return this.status;
     }
 
 

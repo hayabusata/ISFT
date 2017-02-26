@@ -8,6 +8,7 @@ public class StockData {
 	private String status;
 	private String roomNumber;
 	private String type;
+	private String word;
 
 	public int getId() {
 		return this.id;
@@ -60,4 +61,8 @@ public class StockData {
 	public String getType() { return this.type; }
 
 	public void setType(String newType) {this.type = newType; }
+
+	public String getWord() { return this.word; }
+
+	public void setWord(String newWord) {this.word = newWord; }
 }

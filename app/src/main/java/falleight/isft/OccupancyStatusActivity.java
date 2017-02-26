@@ -1,20 +1,26 @@
 package falleight.isft;
 
-import android.app.Activity;
-import android.app.Fragment;
-import android.content.Intent;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import android.content.Context;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.beardedhen.androidbootstrap.BootstrapButton;
 
 import java.sql.SQLException;
 
-public class OccupancyStatusActivity extends AppCompatActivity implements View.OnClickListener {
+public class OccupancyStatusActivity extends Fragment implements View.OnClickListener {
+
+    private static final String ARG_PARAM1 = "email";
+    private static final String ARG_PARAM2 = "pass";
+    private static final String ARG_PARAM3 = "type";
+    private static final String ARG_PARAM4 = "status";
+
     String email;
     String password;
     String type;
@@ -23,35 +29,63 @@ public class OccupancyStatusActivity extends AppCompatActivity implements View.O
     BootstrapButton occupancyButton, exitButton, returnButton;
     TextView statusText;
 
-    @Nullable
+    public OccupancyStatusActivity() {
+        // Required empty public constructor
+    }
+
+    public static OccupancyStatusActivity newInstance(String param1, String param2, String param3, String param4) {
+        OccupancyStatusActivity fragment = new OccupancyStatusActivity();
+        Bundle args = new Bundle();
+        args.putString(ARG_PARAM1, param1);
+        args.putString(ARG_PARAM2, param2);
+        args.putString(ARG_PARAM3, param3);
+        args.putString(ARG_PARAM4, param4);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.occupation_status);
 
-        Intent intent = getIntent();
-        if (intent != null) {
-            email = intent.getStringExtra("email");
-            password = intent.getStringExtra("pass");
-            type = intent.getStringExtra("type");
-            status = intent.getStringExtra("status");
+        //System.out.println(getArguments().getString(ARG_PARAM4));
+
+        if (getArguments() != null) {
+            email = getArguments().getString(ARG_PARAM1);
+            password = getArguments().getString(ARG_PARAM2);
+            type = getArguments().getString(ARG_PARAM3);
+            status = getArguments().getString(ARG_PARAM4);
         }
 
-        System.out.println(status);
+        //System.out.println(email + "hooo");
+    }
 
-        /*test = new ConnectionISFT();
-        test.connectDatabase();
-        System.out.println("process");*/
-        
-        occupancyButton = (BootstrapButton)findViewById(R.id.OccupancyButton);
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.occupation_status, container, false);
+
+        occupancyButton = (BootstrapButton)v.findViewById(R.id.OccupancyButton);
         occupancyButton.setOnClickListener(this);
-        exitButton = (BootstrapButton)findViewById(R.id.ExitButton);
+        exitButton = (BootstrapButton)v.findViewById(R.id.ExitButton);
         exitButton.setOnClickListener(this);
-        returnButton = (BootstrapButton)findViewById(R.id.ReturnButton);
+        returnButton = (BootstrapButton)v.findViewById(R.id.ReturnButton);
         returnButton.setOnClickListener(this);
 
-        statusText = (TextView)findViewById(R.id.StatusText);
+        statusText = (TextView)v.findViewById(R.id.StatusText);
         statusText.setText(status);
+
+        return v;
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
     }
 
     @Override

@@ -53,9 +53,10 @@ public class ConnectionISFT {
 				this.data.setName(result.getString(2));
 				this.data.setRoomNumber(result.getString(3));
 				this.data.setStatus(result.getString(4));
-				this.data.setEmail(result.getString(5));
-				this.data.setPassword(result.getString(6));
-				this.data.setType(result.getString(7));
+				this.data.setWord(result.getString(5));
+				this.data.setEmail(result.getString(6));
+				this.data.setPassword(result.getString(7));
+				this.data.setType(result.getString(8));
 				//stockList.add(data);
 			}
 
@@ -101,9 +102,53 @@ public class ConnectionISFT {
 					this.data.setName(result.getString(2));
 					this.data.setRoomNumber(result.getString(3));
 					this.data.setStatus(result.getString(4));
-					this.data.setEmail(result.getString(5));
-					this.data.setPassword(result.getString(6));
-					this.data.setType(result.getString(7));
+					this.data.setWord(result.getString(5));
+					this.data.setEmail(result.getString(6));
+					this.data.setPassword(result.getString(7));
+					this.data.setType(result.getString(8));
+					//stockList.add(data);
+				}
+			}
+
+			/*StockData data2;
+			for (int i = 0; i < stockList.size(); i++) {
+				data2 = (StockData) stockList.get(i);
+				System.out.print(data2.getId() + ":");
+				System.out.print(data2.getEmail() + ":");
+				System.out.print(data2.getPassword() + ":");
+				System.out.print(data2.getName() + ":");
+				System.out.println(data2.getStatus());
+			}*/
+
+			System.out.println("updating is success.");
+		}
+	}
+
+	public void updateWord(String nextWord) throws SQLException {
+		int num = 0;
+		String str = String.format("UPDATE isft SET word = '%s' WHERE email = '%s' and type = 'teacher';", nextWord, this.data.getEmail());
+
+		num = this.statement.executeUpdate(str);
+
+		if (num > 0) {
+			String str2 = String.format("SELECT * FROM isft where email = '%s' and password = '%s' and type = 'teacher';", this.data.getEmail(), this.data.getPassword());
+			ResultSet result = this.statement.executeQuery(str2);
+			//List stockList = new ArrayList();
+			this.data = new StockData();
+
+			result.last();
+			int numberOfRow = result.getRow();
+			if (numberOfRow == 1) {	//メールアドレス、パスワードが一致するものが1つなら
+				result.beforeFirst();
+				while (result.next()) {
+					this.data.setId(result.getInt(1));
+					this.data.setName(result.getString(2));
+					this.data.setRoomNumber(result.getString(3));
+					this.data.setStatus(result.getString(4));
+					this.data.setWord(result.getString(5));
+					this.data.setEmail(result.getString(6));
+					this.data.setPassword(result.getString(7));
+					this.data.setType(result.getString(8));
 					//stockList.add(data);
 				}
 			}
@@ -134,9 +179,10 @@ public class ConnectionISFT {
 			this.data.setName(result.getString(2));
 			this.data.setRoomNumber(result.getString(3));
 			this.data.setStatus(result.getString(4));
-			this.data.setEmail(result.getString(5));
-			this.data.setPassword(result.getString(6));
-			this.data.setType(result.getString(7));
+			this.data.setWord(result.getString(5));
+			this.data.setEmail(result.getString(6));
+			this.data.setPassword(result.getString(7));
+			this.data.setType(result.getString(8));
 			stockList.add(data);
 		}
 
@@ -160,5 +206,12 @@ public class ConnectionISFT {
 		ResultSet result = this.statement.executeQuery(str);
 		result.last();
 		return result.getString(4);
+	}
+
+	public String getWordFromDatabase(String email, String password) throws SQLException {
+		String str = String.format("SELECT * FROM isft WHERE email = '%s' and password = '%s' and type = 'teacher';", email, password);
+		ResultSet result = this.statement.executeQuery(str);
+		result.last();
+		return result.getString(5);
 	}
 }
