@@ -10,7 +10,7 @@ import android.widget.TabHost;
 import static falleight.isft.R.string.title_activity_startmenu;
 import static falleight.isft.R.string.title_activity_teachermenu;
 
-public class TeacherMenuActivity extends FragmentActivity {
+public class TeacherMenuActivity extends AppCompatActivity {
     protected String email;
     protected String password;
     protected String type;
@@ -35,7 +35,6 @@ public class TeacherMenuActivity extends FragmentActivity {
         }
 
         initTabs();
-
     }
 
     private void initTabs() {
@@ -64,6 +63,5 @@ public class TeacherMenuActivity extends FragmentActivity {
     public String getStatus() {
         return this.status;
     }
-
 
 }
