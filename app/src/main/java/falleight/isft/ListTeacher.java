@@ -43,7 +43,7 @@ public class ListTeacher extends AppCompatActivity {
                 ListView listView = (ListView)parent;
                 StockData item = (StockData)listView.getItemAtPosition(pos);
 
-                Intent intent = new Intent(ListTeacher.this, StudentsMenuActivity.class);
+                Intent intent = new Intent(ListTeacher.this, TeacherProfileActivity.class);
                 intent.putExtra("name", item.getName());
                 startActivity(intent);
             }

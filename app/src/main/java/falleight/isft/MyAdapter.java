@@ -1,11 +1,18 @@
 package falleight.isft;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.beardedhen.androidbootstrap.BootstrapAlert;
+import com.beardedhen.androidbootstrap.BootstrapButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,8 +53,20 @@ public class MyAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         convertView = layoutInflater.inflate(R.layout.list_layout, parent, false);
 
+        ListView listView = (ListView)convertView.findViewById((R.id.teacherList));
+        TextView view = (TextView) convertView.findViewById(R.id.status);
+
         ((TextView)convertView.findViewById(R.id.name)).setText(teacherList.get(position).getName());
-        ((TextView)convertView.findViewById(R.id.status)).setText(teacherList.get(position).getStatus());
+        view.setText(teacherList.get(position).getStatus());
+        //System.out.println("はあーい");
+        if (view.getText().equals("在室")) {
+            view.setBackgroundColor(Color.GREEN);
+        } else if (view.getText().equals("退室")) {
+            view.setBackgroundColor(Color.RED);
+        } else {
+            view.setBackgroundColor(Color.DKGRAY);
+        }
+
 
         return convertView;
     }
