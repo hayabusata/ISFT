@@ -45,6 +45,10 @@ public class ListTeacher extends AppCompatActivity {
 
                 Intent intent = new Intent(ListTeacher.this, TeacherProfileActivity.class);
                 intent.putExtra("name", item.getName());
+                intent.putExtra("roomnumber", item.getRoomNumber());
+                intent.putExtra("email", item.getEmail());
+                intent.putExtra("status", item.getStatus());
+                intent.putExtra("word", item.getWord());
                 startActivity(intent);
             }
         });
@@ -65,7 +69,7 @@ public class ListTeacher extends AppCompatActivity {
                 stockList = test.getAllTeachersData();
 
                 for (int i = 0; i < stockList.size(); i++) {
-                    System.out.println("processing");
+                    //System.out.println("processing");
                     test.data = (StockData) stockList.get(i);
 
                     list.add(test.data);
