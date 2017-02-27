@@ -30,12 +30,26 @@
         android:textSize="20dp"
         android:id="@+id/StatusView" />
 
-    <TextView
-        android:text="TextView"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:id="@+id/EmailView" />
+        android:layout_height="50dp">
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:id="@+id/EmailView"
+            android:layout_weight="1" />
+
+        <Button
+            android:text="メールを送る"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/sendEmail"
+            android:layout_weight="1" />
+    </LinearLayout>
 
     <TextView
         android:text="TextView"
