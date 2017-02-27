@@ -46,15 +46,18 @@ public class TeacherProfileActivity extends AppCompatActivity implements View.On
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.sendEmail:
-                Intent emailIntent = new Intent();
-                emailIntent.setAction(Intent.ACTION_SENDTO);
+                Uri uri = Uri.parse("mailto:" + email);
 
-                emailIntent.setType("text/plain");
-                emailIntent.setData(Uri.parse("mail:to" + email));
+                Intent emailIntent = new Intent(Intent.ACTION_SENDTO, uri);
+                //emailIntent.setAction(Intent.ACTION_SENDTO, uri);
+
+                //emailIntent.setType("text/plain");
+                //emailIntent.setData(Uri.parse("mail:to" + email));
                 emailIntent.putExtra(Intent.EXTRA_SUBJECT, "タイトル");
                 emailIntent.putExtra(Intent.EXTRA_TEXT, "本文");
 
-                startActivity(Intent.createChooser(emailIntent, null));
+                //startActivity(Intent.createChooser(emailIntent, null));
+                startActivity(emailIntent);
                 break;
             default:
                 break;
