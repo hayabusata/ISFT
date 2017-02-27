@@ -8,6 +8,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.beardedhen.androidbootstrap.BootstrapButton;
+
+import static falleight.isft.R.string.title_activity_startmenu;
+import static falleight.isft.R.string.title_activity_teacherprofile;
+
 public class TeacherProfileActivity extends AppCompatActivity implements View.OnClickListener{
     String name, status, email, roomNumber, word;
 
@@ -17,6 +22,7 @@ public class TeacherProfileActivity extends AppCompatActivity implements View.On
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.teacher_profile);
+        setTitle(title_activity_teacherprofile);
 
         Intent intent = getIntent();
         if (intent != null) {
@@ -29,15 +35,15 @@ public class TeacherProfileActivity extends AppCompatActivity implements View.On
 
         nameView = (TextView)findViewById(R.id.TeacherName);
         statusView = (TextView)findViewById(R.id.StatusView);
-        emailView = (TextView)findViewById(R.id.EmailView);
+        //emailView = (TextView)findViewById(R.id.EmailView);
         roomNumberView = (TextView)findViewById(R.id.RoomNumberView);
         wordView = (TextView)findViewById(R.id.WordView);
 
-        ((Button)findViewById(R.id.sendEmail)).setOnClickListener(this);
+        ((BootstrapButton)findViewById(R.id.sendEmail)).setOnClickListener(this);
 
         nameView.setText(name);
         statusView.setText(status);
-        emailView.setText(email);
+        //emailView.setText(email);
         roomNumberView.setText(roomNumber);
         wordView.setText(word);
     }
@@ -53,8 +59,8 @@ public class TeacherProfileActivity extends AppCompatActivity implements View.On
 
                 //emailIntent.setType("text/plain");
                 //emailIntent.setData(Uri.parse("mail:to" + email));
-                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "タイトル");
-                emailIntent.putExtra(Intent.EXTRA_TEXT, "本文");
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "");
+                emailIntent.putExtra(Intent.EXTRA_TEXT, "");
 
                 //startActivity(Intent.createChooser(emailIntent, null));
                 startActivity(emailIntent);

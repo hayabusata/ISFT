@@ -1,26 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_marginTop="50dp">
 
-    <EditText
+    <TextView
+        android:text="現在のコメント"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Name"
-        android:ems="10"
-        android:id="@+id/editText" />
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="@android:color/black"
+        android:id="@+id/textView2" />
 
     <TextView
         android:text="TextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="@android:color/black"
         android:id="@+id/textView" />
 
-    <Button
-        android:text="Button"
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:textSize="20sp"
+        android:textColor="@android:color/black"
+        android:ems="10"
+        android:id="@+id/editText" />
+
+    <com.beardedhen.androidbootstrap.BootstrapButton
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_margin="20dp"
+        android:text="コメントを変更"
+        app:bootstrapBrand="warning"
+        app:bootstrapSize="lg"
+        app:buttonMode="regular"
+        app:showOutline="false"
+        app:roundedCorners="true"
         android:id="@+id/button" />
+
 </LinearLayout>

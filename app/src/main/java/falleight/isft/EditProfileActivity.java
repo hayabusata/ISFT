@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.beardedhen.androidbootstrap.BootstrapButton;
+
 import java.sql.SQLException;
 
 public class EditProfileActivity extends Fragment implements View.OnClickListener{
@@ -19,7 +21,7 @@ public class EditProfileActivity extends Fragment implements View.OnClickListene
     private static final String ARG_PARAM3 = "type";
     private static final String ARG_PARAM4 = "word";
 
-    Button button;
+    BootstrapButton button;
     TextView textView;
     EditText editText;
     String email, password, type, word;
@@ -57,7 +59,7 @@ public class EditProfileActivity extends Fragment implements View.OnClickListene
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.edit_profile, container, false);
 
-        button = (Button)v.findViewById(R.id.button);
+        button = (BootstrapButton)v.findViewById(R.id.button);
         textView = (TextView)v.findViewById(R.id.textView);
         editText = (EditText)v.findViewById(R.id.editText);
 
