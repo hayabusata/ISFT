@@ -9,11 +9,12 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class TeacherProfileActivity extends AppCompatActivity implements View.OnClickListener{
-    TextView nameView, statusView, emailView, roomNumberView, wordView;
     String name, status, email, roomNumber, word;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        TextView nameView, statusView, emailView, roomNumberView, wordView;
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.teacher_profile);
 
