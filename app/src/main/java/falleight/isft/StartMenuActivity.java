@@ -47,7 +47,7 @@ public class StartMenuActivity extends AppCompatActivity {
             }
         });
 
-        Button throughLoginButton = (Button)findViewById(R.id.ThroughLoginButton);
+        BootstrapButton throughLoginButton = (BootstrapButton) findViewById(R.id.ThroughLoginButton);
         throughLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

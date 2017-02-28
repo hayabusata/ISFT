@@ -11,18 +11,10 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="falleight.isft.StartMenuActivity">
 
-    <Button
-        android:text="Button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/ThroughLoginButton"
-        android:layout_weight="0.09"
-        android:layout_alignParentBottom="true"/>
-
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:orientation="vertical"
@@ -32,7 +24,7 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="170dp"
                 app:srcCompat="@drawable/student_icon"
                 android:id="@+id/imageView"
                 android:layout_weight="0.09" />
@@ -60,7 +52,7 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="170dp"
                 app:srcCompat="@drawable/teacher_icon"
                 android:id="@+id/imageView2"
                 android:layout_weight="0.09" />
@@ -79,6 +71,34 @@
                 android:id="@+id/TeachersButton" />
 
         </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <com.beardedhen.androidbootstrap.BootstrapButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="0.09"
+            android:text="簡易ログイン"
+            app:bootstrapBrand="success"
+            app:bootstrapSize="lg"
+            app:buttonMode="regular"
+            app:showOutline="false"
+            app:roundedCorners="true"
+            android:id="@+id/ThroughLoginButton" />
+
+        <TextView
+            android:text="※一度ログインをすると、簡易ログインから入力なしでログインをすることができます。"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.09"
+            android:id="@+id/textView8" />
 
     </LinearLayout>
 
