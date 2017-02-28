@@ -52,17 +52,14 @@ public class StartMenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 SharedPreferences data = getSharedPreferences("DataSave", Context.MODE_PRIVATE);
-                System.out.println("haaaaaaaaa");
                 email = data.getString("loginEmail", "0");
                 password = data.getString("loginPassword", "0");
                 type = data.getString("loginType", "0");
 
                 if (email.equals("0") && password.equals("0") && type.equals("0")) {
-                    //make Toast
                     Toast.makeText(StartMenuActivity.this, "ログインしてください", Toast.LENGTH_SHORT).show();
                 } else if (type.equals("teacher")) {
                     new loginTask().execute();
-
                 } else if (type.equals("student")) {
                     Intent intent = new Intent(StartMenuActivity.this, ListTeacher.class);
                     startActivity(intent);
@@ -94,7 +91,6 @@ public class StartMenuActivity extends AppCompatActivity {
                 intent.putExtra("word", word);
 
                 startActivity(intent);
-
             } catch (SQLException e) {
                 return false;
             }

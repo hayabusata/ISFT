@@ -35,6 +35,7 @@ import android.widget.TextView;
 
 import com.beardedhen.androidbootstrap.BootstrapButton;
 
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -314,16 +315,20 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      */
     public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
 
-        private final String mEmail;
-        private final String mPassword;
-        private final String mType = getIntent().getStringExtra("type");
+        private String mEmail;
+        private String mPassword;
+        private String mType = getIntent().getStringExtra("type");
 
         UserLoginTask(String email, String password) {
             mEmail = email;
-            mPassword = password;
+            try {
+                mPassword = Md5.Md5_function(password);
+            } catch (NoSuchAlgorithmException e) {
+                mPassword = password;
+            }
+
+            System.out.println(mPassword);
         }
-
-
 
         @Override
         protected Boolean doInBackground(Void... params) {
