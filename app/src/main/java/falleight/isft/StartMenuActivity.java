@@ -9,6 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
 import com.beardedhen.androidbootstrap.BootstrapButton;
 
 import java.sql.SQLException;
@@ -56,6 +58,7 @@ public class StartMenuActivity extends AppCompatActivity {
 
                 if (email.equals(null) || password.equals(null) || type.equals(null)) {
                     //make Toast
+                    Toast.makeText(StartMenuActivity.this, "ログインしてください", Toast.LENGTH_SHORT).show();
                 } else if (type.equals("teacher")) {
                     new loginTask().execute();
 
