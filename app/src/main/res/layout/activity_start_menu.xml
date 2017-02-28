@@ -11,6 +11,14 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="falleight.isft.StartMenuActivity">
 
+    <Button
+        android:text="Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ThroughLoginButton"
+        android:layout_weight="0.09"
+        android:layout_alignParentBottom="true"/>
+
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -71,6 +79,7 @@
                 android:id="@+id/TeachersButton" />
 
         </LinearLayout>
+
     </LinearLayout>
 
 </RelativeLayout>

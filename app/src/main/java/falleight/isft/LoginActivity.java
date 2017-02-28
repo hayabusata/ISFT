@@ -4,7 +4,9 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -345,6 +347,14 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                     intent.putExtra("email", mEmail);
                     intent.putExtra("pass", mPassword);
                     intent.putExtra("type", mType);
+
+                    SharedPreferences data = getSharedPreferences("DataSave", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = data.edit();
+                    editor.putString("loginEmail", mEmail);
+                    editor.putString("loginPassword", mPassword);
+                    editor.putString("loginType", mType);
+                    editor.apply();
+
                     startActivity(intent);
                 }
 
