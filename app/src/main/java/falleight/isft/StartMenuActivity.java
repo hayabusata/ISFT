@@ -52,11 +52,12 @@ public class StartMenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 SharedPreferences data = getSharedPreferences("DataSave", Context.MODE_PRIVATE);
-                email = data.getString("loginEmail", null);
-                password = data.getString("loginPassword", null);
-                type = data.getString("loginType", null);
+                System.out.println("haaaaaaaaa");
+                email = data.getString("loginEmail", "0");
+                password = data.getString("loginPassword", "0");
+                type = data.getString("loginType", "0");
 
-                if (email.equals(null) || password.equals(null) || type.equals(null)) {
+                if (email.equals("0") && password.equals("0") && type.equals("0")) {
                     //make Toast
                     Toast.makeText(StartMenuActivity.this, "ログインしてください", Toast.LENGTH_SHORT).show();
                 } else if (type.equals("teacher")) {
