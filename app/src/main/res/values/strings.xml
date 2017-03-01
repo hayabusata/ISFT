@@ -6,6 +6,12 @@
     <string name="title_activity_teachermenu">管理画面</string>
     <string name="title_activity_teacherprofile">プロフィール</string>
 
+    <string name="status"><u>現在の在室状況</u></string>
+    <string name="room"><u>部屋番号</u></string>
+
+    <string name="status_teacher"><u>現在の在室状況</u></string>
+    <string name="comment"><u>現在のコメント</u></string>
+
     <!-- Strings related to login -->
     <string name="prompt_email">メールアドレス</string>
     <string name="prompt_password">パスワード</string>
