@@ -64,7 +64,7 @@ public class MyAdapter extends BaseAdapter {
         } else if (view.getText().equals("退室")) {
             view.setBackgroundColor(Color.RED);
         } else {
-            view.setBackgroundColor(Color.DKGRAY);
+            view.setBackgroundColor(Color.GRAY);
         }
 
 
