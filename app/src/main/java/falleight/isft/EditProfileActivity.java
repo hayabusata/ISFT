@@ -70,6 +70,7 @@ public class EditProfileActivity extends Fragment implements View.OnClickListene
 
         button.setOnClickListener(this);
         textView.setText(word);
+        editText.setText(word);
 
         return v;
     }

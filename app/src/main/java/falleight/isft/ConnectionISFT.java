@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ConnectionISFT {
-	static final String URL = "jdbc:mysql://160.16.119.180/test?useUnicode=true&characterEncoding=utf8";
+	static final String URL = "jdbc:mysql://160.16.119.180/users?useUnicode=true&characterEncoding=utf8";
 //	static final String URL = "jdbc:mysql://localhost:3306/test";
 	static final String USERNAME = "4j";
 	static final String PASSWORD = "4jpass";
