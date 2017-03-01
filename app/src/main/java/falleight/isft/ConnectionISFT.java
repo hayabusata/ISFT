@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ConnectionISFT {
-	static final String URL = "jdbc:mysql://160.16.119.180/users?useUnicode=true&characterEncoding=utf8";
+	static final String URL = "jdbc:mysql://160.16.119.180/test?useUnicode=true&characterEncoding=utf8";
 //	static final String URL = "jdbc:mysql://localhost:3306/test";
 	static final String USERNAME = "4j";
 	static final String PASSWORD = "4jpass";
@@ -39,7 +39,7 @@ public class ConnectionISFT {
 
 	//入力したメールアドレス、パスワードがあっていればtrueを返す
 	public boolean loginISFT(String email, String password, String type) throws SQLException {
-		String str = String.format("SELECT * FROM isft where email = '%s' and password = '%s' and type = '%s';", email, password, type);
+		String str = String.format("SELECT * FROM users where email = '%s' and password = '%s' and type = '%s';", email, password, type);
 		ResultSet result = this.statement.executeQuery(str);
 		//List stockList = new ArrayList();
 		this.data = new StockData();
@@ -83,12 +83,12 @@ public class ConnectionISFT {
 	//在室状況を更新
 	public void updateStatus(String nextStatus) throws SQLException {
 		int num = 0;
-		String str = String.format("UPDATE isft SET status = '%s' WHERE email = '%s' and type = 'teacher';", nextStatus, this.data.getEmail());
+		String str = String.format("UPDATE users SET status = '%s' WHERE email = '%s' and type = 'teacher';", nextStatus, this.data.getEmail());
 
 		num = this.statement.executeUpdate(str);
 		
 		if (num > 0) {
-			String str2 = String.format("SELECT * FROM isft where email = '%s' and password = '%s' and type = 'teacher';", this.data.getEmail(), this.data.getPassword());
+			String str2 = String.format("SELECT * FROM users where email = '%s' and password = '%s' and type = 'teacher';", this.data.getEmail(), this.data.getPassword());
 			ResultSet result = this.statement.executeQuery(str2);
 			//List stockList = new ArrayList();
 			this.data = new StockData();
@@ -126,12 +126,12 @@ public class ConnectionISFT {
 
 	public void updateWord(String nextWord) throws SQLException {
 		int num = 0;
-		String str = String.format("UPDATE isft SET word = '%s' WHERE email = '%s' and type = 'teacher';", nextWord, this.data.getEmail());
+		String str = String.format("UPDATE users SET word = '%s' WHERE email = '%s' and type = 'teacher';", nextWord, this.data.getEmail());
 
 		num = this.statement.executeUpdate(str);
 
 		if (num > 0) {
-			String str2 = String.format("SELECT * FROM isft where email = '%s' and password = '%s' and type = 'teacher';", this.data.getEmail(), this.data.getPassword());
+			String str2 = String.format("SELECT * FROM users where email = '%s' and password = '%s' and type = 'teacher';", this.data.getEmail(), this.data.getPassword());
 			ResultSet result = this.statement.executeQuery(str2);
 			//List stockList = new ArrayList();
 			this.data = new StockData();
@@ -169,7 +169,7 @@ public class ConnectionISFT {
 
 	//データベースのISFT教員データを全て取得
 	public List getAllTeachersData() throws SQLException {
-		String str = String.format("SELECT * FROM isft WHERE type = 'teacher';");
+		String str = String.format("SELECT * FROM users WHERE type = 'teacher';");
 		ResultSet result = this.statement.executeQuery(str);
 		List stockList = new ArrayList();
 
@@ -202,14 +202,14 @@ public class ConnectionISFT {
 	}
 
 	public String getStatusFromDatabase(String email, String password) throws SQLException {
-		String str = String.format("SELECT * FROM isft WHERE email = '%s' and password = '%s' and type = 'teacher';", email, password);
+		String str = String.format("SELECT * FROM users WHERE email = '%s' and password = '%s' and type = 'teacher';", email, password);
 		ResultSet result = this.statement.executeQuery(str);
 		result.last();
 		return result.getString(4);
 	}
 
 	public String getWordFromDatabase(String email, String password) throws SQLException {
-		String str = String.format("SELECT * FROM isft WHERE email = '%s' and password = '%s' and type = 'teacher';", email, password);
+		String str = String.format("SELECT * FROM users WHERE email = '%s' and password = '%s' and type = 'teacher';", email, password);
 		ResultSet result = this.statement.executeQuery(str);
 		result.last();
 		return result.getString(5);
