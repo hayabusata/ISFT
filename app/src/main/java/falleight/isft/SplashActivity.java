@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Window;
+import android.widget.ImageView;
 
 public class SplashActivity extends Activity {
 
@@ -16,6 +17,8 @@ public class SplashActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         // activity_splash.xmlをViewに指定。
         setContentView(R.layout.activity_splash);
+        ImageView iv = (ImageView)this.findViewById(R.id.imageView4);
+        iv.setImageResource(R.drawable.splashicon);
         Handler hdl = new Handler();
         // 1000ms遅延させてsplashHandlerを実行。
         hdl.postDelayed(new splashHandler(), 2000);
