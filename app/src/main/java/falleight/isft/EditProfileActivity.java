@@ -77,9 +77,14 @@ public class EditProfileActivity extends Fragment implements View.OnClickListene
 
     @Override
     public void onClick(View v) {
-        word = editText.getText().toString();
-        textView.setText(word);
-        new AsyncAppTask().execute();
+        if (Util.netWorkCheck(this.getContext()) == false){
+            Toast.makeText(v.getContext(), "ネットワーク接続がありません", Toast.LENGTH_SHORT).show();
+            return;
+        } else {
+            word = editText.getText().toString();
+            textView.setText(word);
+            new AsyncAppTask().execute();
+        }
     }
 
     @Override

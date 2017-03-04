@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -40,16 +41,21 @@ public class ListTeacher extends AppCompatActivity {
         listView.setAdapter(myAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
-                ListView listView = (ListView)parent;
-                StockData item = (StockData)listView.getItemAtPosition(pos);
+                if (Util.netWorkCheck(view.getContext()) == false){
+                    Toast.makeText(view.getContext(), "ネットワーク接続がありません", Toast.LENGTH_SHORT).show();
+                    return;
+                } else {
+                    ListView listView = (ListView) parent;
+                    StockData item = (StockData) listView.getItemAtPosition(pos);
 
-                Intent intent = new Intent(ListTeacher.this, TeacherProfileActivity.class);
-                intent.putExtra("name", item.getName());
-                intent.putExtra("roomnumber", item.getRoomNumber());
-                intent.putExtra("email", item.getEmail());
-                intent.putExtra("status", item.getStatus());
-                intent.putExtra("word", item.getWord());
-                startActivity(intent);
+                    Intent intent = new Intent(ListTeacher.this, TeacherProfileActivity.class);
+                    intent.putExtra("name", item.getName());
+                    intent.putExtra("roomnumber", item.getRoomNumber());
+                    intent.putExtra("email", item.getEmail());
+                    intent.putExtra("status", item.getStatus());
+                    intent.putExtra("word", item.getWord());
+                    startActivity(intent);
+                }
             }
         });
     }

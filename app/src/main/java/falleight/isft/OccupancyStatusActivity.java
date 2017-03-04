@@ -95,26 +95,29 @@ public class OccupancyStatusActivity extends Fragment implements View.OnClickLis
 
     @Override
     public void onClick(View v) {
-        /*newStatus = occupancyButton.getText().toString();*/
-        System.out.println("test");
-        switch (v.getId()) {
-            case R.id.OccupancyButton:
-                newStatus = occupancyButton.getText().toString();
-                statusText.setText(newStatus);
-                break;
-            case R.id.ExitButton:
-                newStatus = exitButton.getText().toString();
-                statusText.setText(newStatus);
-                break;
-            case R.id.ReturnButton:
-                newStatus = returnButton.getText().toString();
-                statusText.setText(newStatus);
-                break;
-            default:
-                break;
-        }
+        if (Util.netWorkCheck(this.getContext()) == false){
+            Toast.makeText(v.getContext(), "ネットワーク接続がありません", Toast.LENGTH_SHORT).show();
+            return;
+        } else {
+            switch (v.getId()) {
+                case R.id.OccupancyButton:
+                    newStatus = occupancyButton.getText().toString();
+                    statusText.setText(newStatus);
+                    break;
+                case R.id.ExitButton:
+                    newStatus = exitButton.getText().toString();
+                    statusText.setText(newStatus);
+                    break;
+                case R.id.ReturnButton:
+                    newStatus = returnButton.getText().toString();
+                    statusText.setText(newStatus);
+                    break;
+                default:
+                    break;
+            }
 
-        new AsyncAppTask().execute();
+            new AsyncAppTask().execute();
+        }
     }
 
     class AsyncAppTask extends AsyncTask<Void, Void, Boolean> {

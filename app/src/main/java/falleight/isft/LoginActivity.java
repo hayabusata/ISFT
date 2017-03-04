@@ -32,6 +32,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.beardedhen.androidbootstrap.BootstrapButton;
 
@@ -164,6 +165,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      */
     private void attemptLogin() {
         if (mAuthTask != null) {
+            return;
+        }
+
+        if (Util.netWorkCheck(this.getApplicationContext()) == false){
+            Toast.makeText(this, "ネットワーク接続がありません", Toast.LENGTH_SHORT).show();
             return;
         }
 
