@@ -4,7 +4,7 @@ android {
     buildToolsVersion "24.0.1"
     defaultConfig {
         applicationId "falleight.isft"
-        minSdkVersion 15
+        minSdkVersion 24
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"

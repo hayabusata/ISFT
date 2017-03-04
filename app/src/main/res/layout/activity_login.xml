@@ -12,6 +12,7 @@
     tools:context="falleight.isft.LoginActivity">
 
     <!-- Login progress -->
+
     <ProgressBar
         android:id="@+id/login_progress"
         style="?android:attr/progressBarStyleLarge"
@@ -76,6 +77,16 @@
                 app:showOutline="false"
                 app:roundedCorners="true" />
 
+            <TextView
+                android:text="アカウント作成等はこちら(Web版)"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/MoveWebISFT"
+                android:gravity="center_horizontal"
+
+                />
+
         </LinearLayout>
     </ScrollView>
+
 </LinearLayout>

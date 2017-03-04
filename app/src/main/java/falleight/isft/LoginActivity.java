@@ -22,7 +22,12 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.text.Html;
+import android.text.SpannableString;
 import android.text.TextUtils;
+import android.text.method.LinkMovementMethod;
+import android.text.method.MovementMethod;
+import android.text.util.Linkify;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -40,6 +45,9 @@ import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
@@ -70,6 +78,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+    private TextView moveWebText;
+
+    final String url = "160.16.119.180/isft/cakephp/users/login";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +97,26 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             }
         });*/
 
+        moveWebText = (TextView)findViewById(R.id.MoveWebISFT);
+        MovementMethod mMethod = LinkMovementMethod.getInstance();
+        moveWebText.setMovementMethod(mMethod);
+        if (Build.VERSION.SDK_INT >= 24) {
+            moveWebText.setText(Html.fromHtml("<a href=\"" + url + "\">アカウント作成等はこちら(Web版)</a>", Html.FROM_HTML_MODE_LEGACY)); // for 24 api and more
+        } else {
+            moveWebText.setText(Html.fromHtml("<a href=\"" + url + "\">アカウント作成等はこちら(Web版)</a>")); // or for older api
+        }
+        /*moveWebText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(LoginActivity.this, WebViewFromTextView.class);
+                i.setAction(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+            }
+        });*/
+        //moveWebText.setText(url);
+
+
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();
@@ -101,6 +132,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 return false;
             }
         });
+
+
 
         BootstrapButton mEmailSignInButton = (BootstrapButton) findViewById(R.id.email_sign_in_button);
         mEmailSignInButton.setOnClickListener(new OnClickListener() {

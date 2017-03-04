@@ -42,6 +42,8 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".TeacherProfileActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".WebViewFromTextView"
+            android:screenOrientation="portrait"/>
 
     </application>
 
