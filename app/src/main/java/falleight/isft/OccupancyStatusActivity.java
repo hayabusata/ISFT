@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -19,7 +20,6 @@ import com.beardedhen.androidbootstrap.BootstrapButton;
 import java.sql.SQLException;
 
 public class OccupancyStatusActivity extends Fragment implements View.OnClickListener {
-
     private static final String ARG_PARAM1 = "email";
     private static final String ARG_PARAM2 = "pass";
     private static final String ARG_PARAM3 = "type";
@@ -129,7 +129,6 @@ public class OccupancyStatusActivity extends Fragment implements View.OnClickLis
             test.connectDatabase();
             try {
                 if (test.loginISFT(email, password, type)) {
-                    System.out.println(newStatus);
                     test.updateStatus(newStatus);
                     return true;
                 }

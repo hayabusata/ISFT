@@ -60,11 +60,11 @@ public class MyAdapter extends BaseAdapter {
         view.setText(teacherList.get(position).getStatus());
         //System.out.println("はあーい");
         if (view.getText().equals("在室")) {
-            view.setBackgroundColor(Color.GREEN);
+            view.setTextColor(Color.GREEN);
         } else if (view.getText().equals("退室")) {
-            view.setBackgroundColor(Color.RED);
+            view.setTextColor(Color.RED);
         } else {
-            view.setBackgroundColor(Color.GRAY);
+            view.setTextColor(Color.GRAY);
         }
 
 

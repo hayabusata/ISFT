@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -20,6 +21,8 @@ import static falleight.isft.R.string.title_activity_startmenu;
 import static falleight.isft.R.string.title_activity_studentmenu;
 
 public class StartMenuActivity extends AppCompatActivity {
+    private static final String TAG = "StartMenuActivity";
+
     String email, password, type, status, word;
 
     @Override
@@ -28,7 +31,16 @@ public class StartMenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_start_menu);
         setTitle(title_activity_startmenu);
 
-        BootstrapButton teachersbutton = (BootstrapButton)findViewById(R.id.TeachersButton);
+        // [START handle_data_extras]
+        if (getIntent().getExtras() != null) {
+            for (String key : getIntent().getExtras().keySet()) {
+                Object value = getIntent().getExtras().get(key);
+                Log.d(TAG, "Key: " + key + " Value: " + value);
+            }
+        }
+        // [END handle_data_extras]
+
+        BootstrapButton teachersbutton = (BootstrapButton) findViewById(R.id.TeachersButton);
         teachersbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -37,7 +49,7 @@ public class StartMenuActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        BootstrapButton studentsbutton = (BootstrapButton)findViewById(R.id.StudentsButton);
+        BootstrapButton studentsbutton = (BootstrapButton) findViewById(R.id.StudentsButton);
         studentsbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
