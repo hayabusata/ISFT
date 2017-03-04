@@ -83,7 +83,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/MoveWebISFT"
                 android:gravity="center_horizontal"
-
+                android:autoLink="web"
                 />
 
         </LinearLayout>

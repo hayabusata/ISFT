@@ -103,7 +103,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         if (Build.VERSION.SDK_INT >= 24) {
             moveWebText.setText(Html.fromHtml("<a href=\"" + url + "\">アカウント作成等はこちら(Web版)</a>", Html.FROM_HTML_MODE_LEGACY)); // for 24 api and more
         } else {
-            moveWebText.setText(Html.fromHtml("<a href=\"" + url + "\">アカウント作成等はこちら(Web版)</a>")); // or for older api
+            moveWebText.setText(url); // or for older api
         }
         /*moveWebText.setOnClickListener(new View.OnClickListener() {
             @Override
