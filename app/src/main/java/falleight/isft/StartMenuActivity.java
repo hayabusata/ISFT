@@ -68,6 +68,11 @@ public class StartMenuActivity extends AppCompatActivity {
                 password = data.getString("loginPassword", "0");
                 type = data.getString("loginType", "0");
 
+                if (Util.netWorkCheck(v.getContext()) == false){
+                    Toast.makeText(v.getContext(), "ネットワーク接続がありません", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 if (email.equals("0") && password.equals("0") && type.equals("0")) {
                     Toast.makeText(StartMenuActivity.this, "ログインしてください", Toast.LENGTH_SHORT).show();
                 } else if (type.equals("teacher")) {
